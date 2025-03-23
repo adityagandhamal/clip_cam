@@ -49,8 +49,9 @@ python clip_cam.py --model_name "ViT-B/16" --image_path "cat.jpg" --text "a cute
 
 
 ## 🔥 Example Visualization
+![Sample Input Image](https://github.com/adityagandhamal/clip_cam/blob/main/assets/cat.jpg)
 
-![Sample Output](./example_output.png)  
+![Sample Output](https://github.com/adityagandhamal/clip_cam/blob/main/assets/a%20cute%20kitten_.png)  
 _Example visualization showing attention heatmap over the image for the provided text prompt._
 
 ## 📜 License
