@@ -1,7 +1,6 @@
 import torch
 import numpy as np
 from PIL import Image
-from detectron2.structures import ImageList
 from torch.nn import functional as F
 
 def min_max(logits):
@@ -19,13 +18,19 @@ def process_input(image, device):
     clip_pixel_std = torch.tensor([[[68.5005]],
                         [[66.6322]],
                         [[70.3232]]], device=device)
-    
-    size_divisibility = 32
-    clip_resolution = (384, 384)
-    image = Image.open(image)
+        
+    image = Image.open(image).convert("RGB")
     image = torch.tensor(np.array(image)).to(device, dtype=torch.float32)
     image = torch.permute(image, (2,0,1))
-    clip_images = [(image - clip_pixel_mean) / clip_pixel_std]
-    clip_images = ImageList.from_tensors(clip_images, size_divisibility)
-    clip_images_resized = F.interpolate(clip_images.tensor, size=clip_resolution, mode='bilinear', align_corners=False, )
-    return clip_images_resized
+    image = (image - clip_pixel_mean) / clip_pixel_std
+    
+    size_divisibility = 32
+    _, h, w = image.shape
+    pad_h = (size_divisibility - h % size_divisibility) % size_divisibility
+    pad_w = (size_divisibility - w % size_divisibility) % size_divisibility
+
+    image_padded = F.pad(image, (0, pad_w, 0, pad_h), "constant", 0)
+    
+    clip_resolution = (384, 384)
+    image_resized = F.interpolate(image_padded.unsqueeze(0), size=clip_resolution, mode='bilinear', align_corners=False)
+    return image_resized
