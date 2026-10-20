@@ -10,7 +10,7 @@ def min_max(logits):
         logits = (logits - logits_min) / (logits_max - logits_min)
         return logits
 
-def process_input(image, device):
+def process_input(image, device, resolution=384):
     clip_pixel_mean = torch.tensor([[[122.7709]],
                         [[116.7460]],
                         [[104.0937]]], device=device)
@@ -31,6 +31,6 @@ def process_input(image, device):
 
     image_padded = F.pad(image, (0, pad_w, 0, pad_h), "constant", 0)
     
-    clip_resolution = (384, 384)
+    clip_resolution = (resolution, resolution)
     image_resized = F.interpolate(image_padded.unsqueeze(0), size=clip_resolution, mode='bilinear', align_corners=False)
     return image_resized

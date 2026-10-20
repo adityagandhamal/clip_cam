@@ -11,6 +11,7 @@ def parse_args():
         parser.add_argument('--image_path', type=str, required=True, help='Path to the input image')
         parser.add_argument('--text', type=str, required=True, help='Text input for matching (e.g., "a photo of a cat")')
         parser.add_argument('--checkpoint', type=str, default=None, help='Path to CLIP checkpoint')
+        parser.add_argument('--resolution', type=int, default=384, help='Input image resolution')
         
         return parser.parse_args()
 
@@ -19,7 +20,7 @@ def main(args):
         #model_name = "ViT-B/16"
         model = clip.load_clip(args.model_name, device, checkpoint=args.checkpoint)
 
-        image = utils.process_input(args.image_path, device=device)
+        image = utils.process_input(args.image_path, device=device, resolution=args.resolution)
 
         vis_f = model.encode_image(image, dense=True)
         vis_f = F.normalize(vis_f, dim=-1)
