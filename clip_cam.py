@@ -30,10 +30,11 @@ def main(args):
         text_embeddings = text_embeddings / text_embeddings.norm(dim=-1, keepdim=True)
         text_embeddings = text_embeddings.unsqueeze(1)
 
-        W, H = (384, 384)
+        H, W = image.shape[-2:]
+        grid_size = int((vis_f.shape[1] - 1) ** 0.5)
         img_txt_matching = vis_f[:,1:] @ torch.permute(text_embeddings, (1,2,0))
-        img_txt_matching = rearrange(img_txt_matching, 'b (w h) c -> b c w h', w=24)
-        img_txt_matching = F.interpolate(img_txt_matching, size=(W, H), mode='bilinear')
+        img_txt_matching = rearrange(img_txt_matching, 'b (w h) c -> b c w h', w=grid_size)
+        img_txt_matching = F.interpolate(img_txt_matching, size=(H, W), mode='bilinear')
 
         img_txt_matching = utils.min_max(img_txt_matching)
 
