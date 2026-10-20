@@ -36,5 +36,6 @@ def visualize(image, text, logits):
             plt.title(cls_name)
             plt.axis('off')
             plt.tight_layout()
+            plt.savefig(f'{cls_name}_.png', bbox_inches='tight')
             plt.show()
-            plt.savefig(f'{cls_name}_.png')
+            plt.close()
