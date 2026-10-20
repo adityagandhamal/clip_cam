@@ -18,7 +18,7 @@ def visualize(image, text, logits):
             #                 + clip_pixel_mean[:, None, None].detach().cpu()  # undo the normalization
             image = Image.fromarray((image_unormed.permute(1, 2, 0).numpy() * 255).astype('uint8'))  # convert to PIL
         else:
-            raise f'image should be either of type PIL.Image.Image or torch.Tensor but found {type(image)}'
+            raise TypeError(f'image should be either of type PIL.Image.Image or torch.Tensor but found {type(image)}')
 
         if logits.ndim > 3:
             logits = logits.squeeze(0)
