@@ -2,15 +2,21 @@ from setuptools import setup, find_packages
 
 setup(
     name='clip_cam',
-    version='0.1.5',
+    version='0.1.6',
     author='Aditya Gandhamal, Aniruddh Sikdar',
     author_email='',
     description='A package for visualizing the prompt-image feature matching in ViT-based CLIP models, highlighting the alignment between image features and textual prompts.',
-    long_description=open('README.md').read(),
+    long_description=open('README.md', encoding='utf-8').read(),
     long_description_content_type='text/markdown',
     license='MIT',
-    url='https://github.com/adityagandhamal/clip-cam',
+    url='https://github.com/adityagandhamal/clip_cam',
     packages=find_packages(),
+    py_modules=['clip_cam'],
+    include_package_data=True,
+    package_data={'clip': ['bpe_simple_vocab_16e6.txt.gz']},
+    entry_points={
+        'console_scripts': ['clip-cam=clip_cam:main'],
+    },
     install_requires=[
         'torch',
         'numpy',

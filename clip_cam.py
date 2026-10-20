@@ -15,7 +15,9 @@ def parse_args():
         
         return parser.parse_args()
 
-def main(args):        
+def main(args=None):
+        if args is None:
+                args = parse_args()
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         #model_name = "ViT-B/16"
         model = clip.load_clip(args.model_name, device, checkpoint=args.checkpoint)
