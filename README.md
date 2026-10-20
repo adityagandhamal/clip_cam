@@ -22,8 +22,10 @@ pip install clip_cam
 Run the following command to generate a visualization:
 
 ```bash
-python clip_cam.py --model_name "ViT-B/16" --image_path "path/to/image.jpg" --text "your text prompt"
+clip-cam --model_name "ViT-B/16" --image_path "path/to/image.jpg" --text "your text prompt"
 ```
+
+If you cloned the repo instead, you can run `python clip_cam.py` with the same arguments.
 
 ### Arguments:
 - `--image_path`: Path to the input image.
@@ -34,7 +36,7 @@ python clip_cam.py --model_name "ViT-B/16" --image_path "path/to/image.jpg" --te
 
 ### Example:
 ```bash
-python clip_cam.py --model_name "ViT-B/16" --image_path "assets/cat.jpg" --text "a cute kitten"
+clip-cam --model_name "ViT-B/16" --image_path "assets/cat.jpg" --text "a cute kitten"
 ```
 
 ## 🛠️ How It Works
