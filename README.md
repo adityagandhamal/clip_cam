@@ -17,6 +17,12 @@ You can install `clip_cam` via pip:
 pip install clip_cam
 ```
 
+Or install the latest version directly from GitHub:
+
+```bash
+pip install git+https://github.com/adityagandhamal/clip_cam
+```
+
 ## 🔥 Usage
 
 Run the following command to generate a visualization:
