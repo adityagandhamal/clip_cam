@@ -4,8 +4,8 @@
 
 ## 🚀 Features
 
-- Generate Grad-CAM-style heatmaps for image-text matching.
-- Support for Vision Transformer (ViT) architectures.
+- Generate Grad-CAM-style heatmaps for image-text matching, computed as dense image-text similarity (no gradients needed).
+- Support for Vision Transformer (ViT) architectures: `ViT-B/32`, `ViT-B/16`, `ViT-L/14`, `ViT-L/14@336px`.
 - Easy integration with existing CLIP implementations.
 - Custom checkpoint support for fine-tuned models.
 
@@ -30,10 +30,11 @@ python clip_cam.py --model_name "ViT-B/16" --image_path "path/to/image.jpg" --te
 - `--text`: Text input/prompt.
 - `--model_name`: CLIP model name (default: `ViT-B/16`).
 - `--checkpoint`: (Optional) Path to a fine-tuned CLIP model checkpoint.
+- `--resolution`: Input image resolution (default: `384`). Higher values give sharper heatmaps but run slower.
 
 ### Example:
 ```bash
-python clip_cam.py --model_name "ViT-B/16" --image_path "cat.jpg" --text "a cute kitten" 
+python clip_cam.py --model_name "ViT-B/16" --image_path "assets/cat.jpg" --text "a cute kitten"
 ```
 
 ## 🛠️ How It Works
@@ -50,8 +51,8 @@ python clip_cam.py --model_name "ViT-B/16" --image_path "cat.jpg" --text "a cute
 
 ## 🔥 Example Visualization
 
-![Sample Output](https://github.com/adityagandhamal/clip_cam/blob/main/assets/clip_cam.png)  
-_Example visualization showing attention heatmap over the image for the provided text prompt._
+![Sample Output](https://raw.githubusercontent.com/adityagandhamal/clip_cam/main/assets/clip_cam.png)  
+_Example visualization showing the similarity heatmap over the image for the provided text prompt._
 
 ## 📜 License
 
