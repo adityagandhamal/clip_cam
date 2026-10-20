@@ -9,7 +9,7 @@ def parse_args():
         parser = argparse.ArgumentParser(description="CLIP Image-Text Matching")
         parser.add_argument('--model_name', type=str, default="ViT-B/16", help='Name of the CLIP model')
         parser.add_argument('--image_path', type=str, required=True, help='Path to the input image')
-        parser.add_argument('--text', type=str, required=True, help='Text input for matching (e.g., "Donald Trump")')
+        parser.add_argument('--text', type=str, required=True, help='Text input for matching (e.g., "a photo of a cat")')
         parser.add_argument('--checkpoint', type=str, default=None, help='Path to CLIP checkpoint')
         
         return parser.parse_args()
