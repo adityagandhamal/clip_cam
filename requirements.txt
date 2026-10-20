@@ -3,6 +3,5 @@ numpy
 einops
 opencv-python
 matplotlib
-detectron2
 Pillow
-open_clip
+open_clip_torch==2.29.0
