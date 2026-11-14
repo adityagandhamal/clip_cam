@@ -71,7 +71,7 @@ def load_clip(name: str, device: Union[str, torch.device] = "cuda" if torch.cuda
 
     if not jit:
         if checkpoint:
-            state_dict = torch.load(checkpoint)
+            state_dict = torch.load(checkpoint, map_location="cpu")
             model = build_model(state_dict).to(device)
         else:
             model = build_model(model.state_dict()).to(device)

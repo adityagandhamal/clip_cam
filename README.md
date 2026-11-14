@@ -39,10 +39,14 @@ If you cloned the repo instead, you can run `python clip_cam.py` with the same a
 - `--model_name`: CLIP model name (default: `ViT-B/16`).
 - `--checkpoint`: (Optional) Path to a fine-tuned CLIP model checkpoint.
 - `--resolution`: Input image resolution (default: `384`). Higher values give sharper heatmaps but run slower.
+- `--compare_checkpoint`: (Optional) Path to a second checkpoint, e.g. a fine-tuned model. Saves both heatmaps side by side as `<text>_compare.png`, to see how fine-tuning changes CLIP's image-text alignment.
 
 ### Example:
 ```bash
 clip-cam --model_name "ViT-B/16" --image_path "assets/cat.jpg" --text "a cute kitten"
+
+# compare the pretrained model with a fine-tuned checkpoint
+clip-cam --image_path "assets/cat.jpg" --text "a cute kitten" --compare_checkpoint "path/to/finetuned.pt"
 ```
 
 ## 🛠️ How It Works

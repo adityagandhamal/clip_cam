@@ -446,7 +446,7 @@ def build_model(state_dict: dict):
     )
 
     for key in ["input_resolution", "context_length", "vocab_size"]:
-        del state_dict[key]
+        state_dict.pop(key, None)
 
     convert_weights(model)
     model.load_state_dict(state_dict)
