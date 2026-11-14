@@ -66,6 +66,9 @@ clip-cam --image_path "assets/cat.jpg" --text "a cute kitten" --compare_checkpoi
 ![Sample Output](https://raw.githubusercontent.com/adityagandhamal/clip_cam/main/assets/clip_cam.png)  
 _Example visualization showing the similarity heatmap over the image for the provided text prompt._
 
+![Infrared example](https://raw.githubusercontent.com/adityagandhamal/clip_cam/main/assets/ir_car.png)  
+_Works on infrared images too, "a car" on an IR frame from [InfraParis](https://ensta-u2is-ai.github.io/infraParis/)._
+
 ## 📜 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

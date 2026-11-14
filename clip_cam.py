@@ -41,7 +41,7 @@ def checkpoint_label(checkpoint):
         if checkpoint:
                 return os.path.basename(checkpoint)        
         else:
-                return('pretrained')
+                return 'pretrained'
 
 def main(args=None):
         if args is None:
