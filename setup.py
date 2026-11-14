@@ -13,7 +13,7 @@ setup(
     packages=find_packages(),
     py_modules=['clip_cam'],
     include_package_data=True,
-    package_data={'clip': ['bpe_simple_vocab_16e6.txt.gz']},
+    package_data={'clip': ['bpe_simple_vocab_16e6.txt.gz', 'LICENSE']},
     entry_points={
         'console_scripts': ['clip-cam=clip_cam:main'],
     },

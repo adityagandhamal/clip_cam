@@ -1,6 +1,6 @@
-# clip_cam
+# CLIPcam
 
-`clip_cam` is a Python package for visualizing **the image-prompt feature matching** in ViT-based CLIP models, highlighting the alignment between image features and textual prompts. It allows you to visualize how CLIP interprets the relationship between an image and a text description, providing insights into its attention patterns.
+CLIPcam (`clip_cam`) is a Python package for visualizing **the image-prompt feature matching** in ViT-based CLIP models, highlighting the alignment between image features and textual prompts. It allows you to visualize how CLIP interprets the relationship between an image and a text description, providing insights into its attention patterns.
 
 ## 🚀 Features
 
@@ -68,6 +68,10 @@ _Example visualization showing the similarity heatmap over the image for the pro
 
 ![Infrared example](https://raw.githubusercontent.com/adityagandhamal/clip_cam/main/assets/ir_car.png)  
 _Works on infrared images too, "a car" on an IR frame from [InfraParis](https://ensta-u2is-ai.github.io/infraParis/)._
+
+## Acknowledgements
+
+The `clip/` folder is adapted from [OpenAI's CLIP](https://github.com/openai/CLIP), modified to return dense patch features from the image encoder (and to load fine-tuned checkpoints). Their MIT license is kept in [clip/LICENSE](clip/LICENSE).
 
 ## 📜 License
 
